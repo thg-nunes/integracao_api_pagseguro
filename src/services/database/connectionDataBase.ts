@@ -7,20 +7,20 @@ import 'dotenv/config'
  */
 
 export class CreateDataBaseConnection {
-  static _conection: Connection | null = null
+  private static _conection: Connection | null = null
 
   private constructor () {}
 
-    static get connection(): Connection {
-      if(CreateDataBaseConnection._conection === null) {
-        CreateDataBaseConnection._conection = mysql2.createConnection({
-          host: process.env.HOST,
-          user: process.env.USER,
-          password: process.env.PASSWORD,
-          database: process.env.DATABASE,
-        })
-        return CreateDataBaseConnection._conection
-      }
+  static get connection(): Connection {
+    if(CreateDataBaseConnection._conection === null) {
+      CreateDataBaseConnection._conection = mysql2.createConnection({
+        host: process.env.HOST,
+        user: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE,
+      })
       return CreateDataBaseConnection._conection
     }
+    return CreateDataBaseConnection._conection
+  }
 }
