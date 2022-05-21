@@ -6,5 +6,5 @@
   "password": 1520,
   "database": "base_de_dados_api",
   "migrations": ["./src/services/typeorm/migrations/*.ts"],
-  "cli": {"migrationDir": "./src/services/typeorm/migrations"}
+  "cli": {"migrationsDir": "./src/services/typeorm/migrations"}
 }
