@@ -1,6 +1,6 @@
 import { Repository, EntityRepository } from "typeorm";
 
-import { Users } from "../../../entities/typeorm/users/Users";
+import { Users } from "../entities/typeorm/users/Users";
 
 /**
  * Aqui crio um repositório que faz o mapeamento da entidade Users e extende do Repository padrao do typeorm. E por fim, crio um método async que vai buscar algo na entidade Users baseado nos parametros.
