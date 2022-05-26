@@ -3,8 +3,8 @@
   "host": "localhost",
   "port": 3306,
   "username": "root",
-  "password": "152028",
-  "database": "base_de_dados_api",
+  "password": "senha",
+  "database": "integracao_api",
   "migrations": ["./src/services/typeorm/migrations/*.ts"],
   "cli": {"migrationsDir": "./src/services/typeorm/migrations"}
 }
