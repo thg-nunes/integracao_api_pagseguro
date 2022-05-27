@@ -21,8 +21,8 @@ export class UserRepositorie extends Repository<Users> {
     return nameAndEmailExist
   }
 
-  async findByEmail(email: string): Promise<Users | undefined> {
-    const user = await this.findOne(email)
+  async findByUser(id: string): Promise<Users | undefined> {
+    const user = await this.findOne(id)
 
     return user
   }
