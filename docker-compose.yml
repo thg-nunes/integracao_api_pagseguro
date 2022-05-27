@@ -11,7 +11,8 @@ services:
       - --innodb_force_recovery=0
 
     volumes:
-      - ~/.MySQLDBData/mysqlonly/mysql_knex:/var/lib/mysql
+      # - ~/.MySQLDBData/mysqlonly/mysql_knex:/var/lib/mysql
+      - F:\pojetos\database_api_integracao:C:\Program Files\MySQL
 
     ports:
       - 3306:3306
