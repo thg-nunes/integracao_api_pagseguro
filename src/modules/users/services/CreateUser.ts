@@ -1,4 +1,5 @@
 import { getCustomRepository } from 'typeorm'
+import UniqId from 'uniqid'
 import { ErrorRequest } from '../../../error/http'
 import { User } from '../interfaces'
 
@@ -6,9 +7,10 @@ import { UserRepositorie } from '../typeorm/repositories/UserRepositore'
 import { EncryptPassword } from './EncryptPassword'
 
 export class CreateUser {
-  async execute({nome, email, senha}: User) {
+  async execute({id, nome, email, senha}: User) {
     // pegar o repositorio o qual quero usar
     const userRepositorie = getCustomRepository(UserRepositorie)
+    id = UniqId()
     senha = await new EncryptPassword().encryptPassword(senha)
 
     // com o repository mapeado, tenho acesso ao metodo que criei ou metodos padrao
@@ -20,6 +22,7 @@ export class CreateUser {
 
     // como o UserRepositorie esta baseado na entity Users(que mapea toda a entidade user da base de dados), logo tenho acesso a todas as propriedade da entity user, e aqui somente é criado um obj, e nao feita a inserção
     const createUser = userRepositorie.create({
+      id,
       nome,
       email,
       senha
