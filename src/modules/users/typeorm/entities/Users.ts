@@ -1,19 +1,19 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, PrimaryColumn } from "typeorm";
 
 /**
  * Aqui é criada uma entidade para mapear a tabela de usuario, especificando as colunas existentes e o tipo de cada uma
  */
 @Entity('Usuarios')
 export class Users {
-  @Column('string')
+  @PrimaryColumn()
   id: string
 
-  @Column('string')
+  @Column()
   nome: string
 
-  @Column('string')
+  @Column()
   email: string
 
-  @Column('string')
+  @Column()
   senha: string
 }
