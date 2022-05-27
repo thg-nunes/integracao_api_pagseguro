@@ -4,6 +4,7 @@ import { User } from "../interfaces";
 
 import { CreateUser } from "../services/CreateUser";
 import { DeleteUser } from "../services/DeleteUser";
+import { GetUser } from "../services/GetUser";
 
 export class UserController {
   async createUser(req: Request, res: Response): Promise<Response> {
@@ -23,5 +24,13 @@ export class UserController {
       status: 'success',
       message: 'Usuário deletado com sucesso.'
     })
+  }
+
+  async getUser(req: Request, res: Response): Promise<Response> {
+    const { id } = req.body
+    const userService = new GetUser()
+    const user = await userService.execute(id)
+
+    return res.json(user)
   }
 }
