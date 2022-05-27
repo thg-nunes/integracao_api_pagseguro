@@ -11,7 +11,7 @@ import { Users } from "../entities/Users";
 export class UserRepositorie extends Repository<Users> {
 
   async findByNameAndEmail(nome: string, email: string): Promise<Users | undefined> {
-    const nameAndEmailExist = this.findOne({
+    const nameAndEmailExist = await this.findOne({
       where: {
         nome,
         email,
@@ -19,5 +19,11 @@ export class UserRepositorie extends Repository<Users> {
     })
 
     return nameAndEmailExist
+  }
+
+  async findByEmail(email: string): Promise<Users | undefined> {
+    const user = await this.findOne(email)
+
+    return user
   }
 }
