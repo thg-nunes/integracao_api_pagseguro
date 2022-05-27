@@ -11,4 +11,11 @@ export class GetUser {
 
     return user
   }
+
+  async getAllUsers() {
+    const allUsersRepositorie = getCustomRepository(UserRepositorie)
+    const allUsers = await allUsersRepositorie.findByAllUsers()
+
+    return allUsers
+  }
 }
