@@ -1,10 +1,8 @@
-import express, {Request, Response} from 'express'
-import { Cadastro } from './controllers/routers/cadastro/cadastro'
+import express from 'express'
+import userRouter from './modules/routes'
 
 const routes = express.Router()
 
-routes.post('/cadastro', (req: Request, res: Response) => {
-  new Cadastro().insertData(req, res)
-})
+routes.use('/user', userRouter)
 
 export default routes

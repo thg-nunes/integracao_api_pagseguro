@@ -1,8 +1,9 @@
 import "reflect-metadata"
 import express, { Request, Response, NextFunction } from 'express'
+import 'express-async-errors'
 
 import routes from './routes'
-import './services/typeorm'
+import './shared/typeorm'
 import { ErrorRequest } from "./error/http"
 
 const app = express()
