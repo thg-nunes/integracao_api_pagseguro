@@ -1,14 +1,9 @@
 import { getCustomRepository } from 'typeorm'
 import { ErrorRequest } from '../../../error/http'
+import { User } from '../interfaces'
 
 import { UserRepositorie } from '../typeorm/repositories/UserRepositore'
 import { EncryptPassword } from './EncryptPassword'
-
-type User = {
-  nome: string
-  email: string
-  senha: string
-}
 
 export class CreateUser {
   async execute({nome, email, senha}: User) {
